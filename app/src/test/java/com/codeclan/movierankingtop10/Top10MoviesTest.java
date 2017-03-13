@@ -69,4 +69,15 @@ public class Top10MoviesTest {
         assertEquals("Dredd", top10movies.find("Dredd").getTitle());
         assertNull(top10movies.find("Jaws"));
     }
+
+    @Test
+    public void canSwapMoviesInList() throws Exception {
+        top10movies = new Top10Movies();
+        top10movies.setList(starterList);
+        top10movies.promoteRanking(9);
+        assertEquals("Dredd", top10movies.getByRanking(8).getTitle());
+        assertEquals(9, top10movies.getByRanking(9).getRanking());
+        assertEquals(8, top10movies.getByRanking(8).getRanking());
+        assertEquals("Love and Death", top10movies.getByRanking(9).getTitle());
+    }
 }

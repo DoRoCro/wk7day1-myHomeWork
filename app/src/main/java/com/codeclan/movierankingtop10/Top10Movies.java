@@ -40,4 +40,16 @@ public class Top10Movies {
         }
         return null;
     }
+
+    public void promoteRanking(int rankingtopromote) {
+        if (rankingtopromote <= 1 || rankingtopromote > 10) {
+            return;
+        }
+        Movie tmpmovie = this.list[rankingtopromote - 2];
+        tmpmovie.setRanking(rankingtopromote);
+        this.list[rankingtopromote - 2] = this.list[rankingtopromote-1];
+        this.list[rankingtopromote - 2].setRanking(rankingtopromote - 1);
+        this.list[rankingtopromote - 1] = tmpmovie;
+
+    }
 }
