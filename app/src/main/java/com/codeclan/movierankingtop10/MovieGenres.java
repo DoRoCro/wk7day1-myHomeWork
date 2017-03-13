@@ -10,5 +10,8 @@ enum MovieGenres {
     COMEDY,
     SCIFI,
     EPIC,
-    HORROR;
+    HORROR,
+    TRAGEDY,
+    ARTY,
+    PERIOD;
 }

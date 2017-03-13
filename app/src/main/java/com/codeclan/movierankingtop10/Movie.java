@@ -8,9 +8,9 @@ package com.codeclan.movierankingtop10;
 public class Movie {
     private String title;
     private MovieGenres genre;
-    private long ranking;
+    private int ranking;
 
-    public Movie(String title, MovieGenres genre, long ranking) {
+    public Movie(String title, MovieGenres genre, int ranking) {
         this.title = title;
         this.genre = genre;
         this.ranking = ranking;
@@ -32,11 +32,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public long getRanking() {
+    public int getRanking() {
         return ranking;
     }
 
-    public void setRanking(long ranking) {
+    public void setRanking(int ranking) {
         this.ranking = ranking;
     }
 
