@@ -28,6 +28,27 @@ public class MovieTest {
     }
 
     @Test
+    public void testSetGetTitle() throws Exception {
+        assertEquals("Title", movie.getTitle());
+        movie.setTitle("Pi");
+        assertEquals("Pi", movie.getTitle());
+    }
+
+    @Test
+    public void testSetGetGenre() throws Exception {
+        assertEquals(MovieGenres.EPIC, movie.getGenre());
+        movie.setGenre(MovieGenres.SCIFI);
+        assertEquals(MovieGenres.SCIFI, movie.getGenre());
+    }
+
+    @Test
+    public void testSetGetRanking() throws Exception {
+        assertEquals( 99, movie.getRanking());
+        movie.setRanking( 1);
+        assertEquals( 1, movie.getRanking());
+    }
+
+    @Test
     public void toStringTest() throws Exception {
         assertEquals("Title: 'Title', Genre: EPIC, Ranking: 99", movie.toString());
     }
