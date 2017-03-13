@@ -52,4 +52,15 @@ public class Top10Movies {
         this.list[rankingtopromote - 1] = tmpmovie;
 
     }
+
+    public void demoteRanking(int rankingtodemote) {
+        if (rankingtodemote <= 0 || rankingtodemote > 9) {
+            return;
+        }
+        Movie tmpmovie = this.list[rankingtodemote - 1];
+        tmpmovie.setRanking(rankingtodemote + 1);
+        this.list[rankingtodemote - 1] = this.list[rankingtodemote];
+        this.list[rankingtodemote] = tmpmovie;
+        this.list[rankingtodemote - 1 ].setRanking(rankingtodemote);
+    }
 }

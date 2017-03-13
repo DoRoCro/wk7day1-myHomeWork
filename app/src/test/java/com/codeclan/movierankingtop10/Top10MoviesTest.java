@@ -80,4 +80,15 @@ public class Top10MoviesTest {
         assertEquals(8, top10movies.getByRanking(8).getRanking());
         assertEquals("Love and Death", top10movies.getByRanking(9).getTitle());
     }
+
+    @Test
+    public void canSwapMoviesInListReverse() throws Exception {
+        top10movies = new Top10Movies();
+        top10movies.setList(starterList);
+        top10movies.demoteRanking(1);
+        assertEquals("Brazil", top10movies.getByRanking(1).getTitle());
+        assertEquals(2, top10movies.getByRanking(2).getRanking());
+        assertEquals(1, top10movies.getByRanking(1).getRanking());
+        assertEquals("The Exorcist", top10movies.getByRanking(2).getTitle());
+    }
 }
