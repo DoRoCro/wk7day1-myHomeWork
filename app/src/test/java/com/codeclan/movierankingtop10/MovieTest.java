@@ -6,13 +6,14 @@ import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 
 /**
+ *
  * Created by user on 13/03/2017.
  */
 
 public class MovieTest {
 
 
-    Movie movie;
+    private Movie movie;
 
     @Before
     public void before(){
