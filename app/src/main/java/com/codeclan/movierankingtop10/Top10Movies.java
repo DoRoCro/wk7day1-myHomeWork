@@ -17,7 +17,8 @@ public class Top10Movies {
     }
 
     public void setList(Movie[] list) {
-        this.list = list;
+        this.list = list;            // should probably use clone here
+//        this.list = list.clone();  // so that we're dealing with a new independent object, not referring to the original object passed in
     }
 
 
@@ -50,7 +51,9 @@ public class Top10Movies {
         this.list[rankingtopromote - 2] = this.list[rankingtopromote-1];
         this.list[rankingtopromote - 2].setRanking(rankingtopromote - 1);
         this.list[rankingtopromote - 1] = tmpmovie;
-
+        //
+        // post homework comment - could use Collections.swap with an array list
+        // but would probably need to access via Arrays.asList() method - see example solution
     }
 
     public void demoteRanking(int rankingtodemote) {
