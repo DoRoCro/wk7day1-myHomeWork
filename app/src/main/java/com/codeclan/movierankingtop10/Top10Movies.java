@@ -66,4 +66,26 @@ public class Top10Movies {
         this.list[rankingtodemote] = tmpmovie;
         this.list[rankingtodemote - 1 ].setRanking(rankingtodemote);
     }
+
+    // example  simple sort for PDA
+    // returns copy of top10movie list in array sorter by title, with rankings updated
+    public Top10Movies sortByTitle(){
+        // sort loop with stopping condition
+        // does NOT change rankings to match returned order
+        boolean isInOrder = false;
+        while(isInOrder == false){
+            isInOrder = true;
+            for(int i=0; i <= this.list.length - 2; i++){
+                // compare neighbouring movies and swap if out of order, flagging list as unsorted
+                if (this.list[i].getTitle().compareToIgnoreCase(this.list[i+1].getTitle())> 0) {
+                    Movie tmpmovie = this.list[i];
+                    this.list[i] = this.list[i+1];
+                    this.list[i+1] = tmpmovie;
+                    isInOrder = false;
+                }
+                // last pass will do no swaps, isInOrder remains true
+            }
+        }
+        return this;
+    }
 }
