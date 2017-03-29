@@ -78,14 +78,19 @@ public class Top10Movies {
             for(int i=0; i <= this.list.length - 2; i++){
                 // compare neighbouring movies and swap if out of order, flagging list as unsorted
                 if (this.list[i].getTitle().compareToIgnoreCase(this.list[i+1].getTitle())> 0) {
-                    Movie tmpmovie = this.list[i];
-                    this.list[i] = this.list[i+1];
-                    this.list[i+1] = tmpmovie;
+                    swapMoviesByIndex(i, i+1);
                     isInOrder = false;
                 }
                 // last pass will do no swaps, isInOrder remains true
             }
         }
         return this;
+    }
+
+    public void swapMoviesByIndex(int a, int b){
+        // swap two movies in list using array indexes, no bounds checking
+        Movie tmpmovie = this.list[a];
+        this.list[a] = this.list[b];
+        this.list[b] = tmpmovie;
     }
 }

@@ -91,4 +91,23 @@ public class Top10MoviesTest {
         assertEquals(1, top10movies.getByRanking(1).getRanking());
         assertEquals("The Exorcist", top10movies.getByRanking(2).getTitle());
     }
+
+    @Test
+    public void canSwapMoviesByIndex() {
+        top10movies = new Top10Movies();
+        top10movies.setList(starterList);
+        assertEquals("Brazil", top10movies.getByIndex(1).getTitle());
+        top10movies.swapMoviesByIndex(1,0);
+        assertEquals("Brazil", top10movies.getByIndex(0).getTitle());
+    }
+
+    @Test
+    public void canSortMoviesByTitleNotUpdatingRanking(){
+        top10movies = new Top10Movies();
+        top10movies.setList(starterList);
+        assertEquals("The Exorcist", top10movies.getByIndex(0).getTitle());
+        Top10Movies sortedMovies = top10movies.sortByTitle();
+        assertEquals("A Matter of Life and Death", top10movies.getByIndex(0).getTitle());
+
+    }
 }
