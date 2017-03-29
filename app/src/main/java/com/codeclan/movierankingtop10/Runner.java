@@ -30,15 +30,28 @@ public class Runner {
         top10movies.setList(starterList);
 
         // Using the search function
+        System.out.println("Searching for Movie Title...");
         Movie movie = top10movies.find("Dredd");
-        System.out.println("Runner:" + "Found Movie: " + movie.getTitle());
+        System.out.println("Runner:" + "Found Movie: " + movie.getTitle() + " Genre: " + movie.getGenre().toString() + " Ranking: " + movie.getRanking());
 
         // sorting
         Top10Movies sortMovies = top10movies;
         sortMovies.sortByTitle();
-
+        System.out.println("List sorted by title (not re-ranked):");
         for (Movie movie2 : sortMovies.getList()){
             System.out.println(movie2.toString());
         }
+
+        // find using jump search
+        System.out.println("searching for index of 'A Matter of Life and Death'");
+        int index = sortMovies.findIndexForTitleByJumpSearch("A Matter of Life and Death");
+        System.out.println(sortMovies.getByIndex(index).toString() + " found at Index = " + index);
+        System.out.println("searching for index of 'Love and Death'");
+        index = sortMovies.findIndexForTitleByJumpSearch("Love and Death");
+        System.out.println(sortMovies.getByIndex(index).toString() + " found at Index = " + index);
+        System.out.println("searching for index of 'Star Wars'");
+        index = sortMovies.findIndexForTitleByJumpSearch("Star Wars");
+        System.out.println("Index number for Star Wars = " + index);
+
     }
 }

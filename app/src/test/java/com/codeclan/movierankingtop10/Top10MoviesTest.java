@@ -110,4 +110,20 @@ public class Top10MoviesTest {
         assertEquals("A Matter of Life and Death", top10movies.getByIndex(0).getTitle());
 
     }
+    @Test
+    public void canFindIndexByTitleByJumpSearchOfSortedList(){
+        top10movies = new Top10Movies();
+        top10movies.setList(starterList);
+        Top10Movies sortedMovies = top10movies.sortByTitle();
+        assertEquals(0, sortedMovies.findIndexForTitleByJumpSearch("A Matter of Life and Death"));        assertEquals(0, sortedMovies.findIndexForTitleByJumpSearch("A Matter of Life and Death"));
+        assertEquals(8, sortedMovies.findIndexForTitleByJumpSearch("The Devils"));
+    }
+
+    @Test
+    public void willNotFindItemNotInList(){
+        top10movies = new Top10Movies();
+        top10movies.setList(starterList);
+        Top10Movies sortedMovies = top10movies.sortByTitle();
+        assertEquals(-1, sortedMovies.findIndexForTitleByJumpSearch("Star Wars"));
+    }
 }

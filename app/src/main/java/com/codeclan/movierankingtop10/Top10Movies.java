@@ -93,4 +93,31 @@ public class Top10Movies {
         this.list[a] = this.list[b];
         this.list[b] = tmpmovie;
     }
+
+    public int findIndexForTitleByJumpSearch(String target){
+        // calculate jump size
+        Double jumpSizeAsDouble = Math.floor(Math.sqrt(this.list.length));
+        int jumpSize = (int)jumpSizeAsDouble.longValue();
+
+        // jump through list until find a value > target or reach last value less than length of array
+        int jumpTo = jumpSize;
+        while ( jumpTo <= this.list.length - 1){
+            if (this.list[(int)jumpTo].getTitle().compareToIgnoreCase(target)>0){
+                // have found the right block to search so search it with linear search
+                // starting at jumpTo - jumpSize
+                for (int i=jumpTo - jumpSize; i<= jumpTo ; i++ ){
+                    if ( this.list[i].getTitle().compareToIgnoreCase(target)==0 ){
+                        // title found
+                        return i;
+                    }
+                }
+                // target not found
+                return -1;
+            }
+            jumpTo = jumpTo + jumpSize;
+            if (jumpTo > this.list.length -1) jumpTo = this.list.length -1;
+            // should not get stuck in loop here as should fall into linear search and return found or not found
+        }
+        return -1;
+    }
 }
