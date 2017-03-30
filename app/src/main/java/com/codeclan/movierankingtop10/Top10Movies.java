@@ -102,10 +102,13 @@ public class Top10Movies {
         // jump through list until find a value > target or reach last value less than length of array
         int jumpTo = jumpSize;
         while ( jumpTo <= this.list.length - 1){
+            System.out.println("jumpTo: " + jumpTo);
             if (this.list[(int)jumpTo].getTitle().compareToIgnoreCase(target)>0){
                 // have found the right block to search so search it with linear search
                 // starting at jumpTo - jumpSize
                 for (int i=jumpTo - jumpSize; i<= jumpTo ; i++ ){
+                    System.out.println("In Linear search...");
+                    System.out.println("Checking index " + i);
                     if ( this.list[i].getTitle().compareToIgnoreCase(target)==0 ){
                         // title found
                         return i;
